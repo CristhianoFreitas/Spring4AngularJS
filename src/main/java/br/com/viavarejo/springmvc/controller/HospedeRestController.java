@@ -17,15 +17,19 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.viavarejo.springmvc.model.Hospede;
 import br.com.viavarejo.springmvc.service.HospedeService;
 
+/**
+ * Camada de controle com chamadas Rest utilizando JSON
+ * 
+ * Exemplo de cliente acessando na classe HospedeCliente
+ * @see HospedeCliente
+ * 
+ */
 @RestController
 public class HospedeRestController {
 
 	@Autowired
 	HospedeService hospedeService;
 
-	/*
-	 *  Acessado atraves do GET http://localhost:8080/Spring4AngularJS/hospede/1 por exemplo
-	 */
 	@RequestMapping(value = "/hospede/", method = RequestMethod.GET)
 	public ResponseEntity<List<Hospede>> listAllHospedes() {
 		List<Hospede> hospedes = hospedeService.listar();
@@ -35,9 +39,6 @@ public class HospedeRestController {
 		return new ResponseEntity<List<Hospede>>(hospedes, HttpStatus.OK);
 	}
 
-	/*
-	 * Acessado atraves do GET http://localhost:8080/Spring4AngularJS/hospede/1 por exemplo
-	 */
 	@RequestMapping(value = "/hospede/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Hospede> getHospede(@PathVariable("id") long id) {
 		Hospede hospede = hospedeService.recuperaPorId(id);

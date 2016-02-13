@@ -20,9 +20,16 @@ public class Hospede {
 	public Hospede() {
 		id = 0;
 	}
-
+	
 	public Hospede(long id, String nome, String endereco, String email, String cpf) {
 		this.id = id;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.email = email;
+		this.cpf = cpf;
+	}
+	
+	public Hospede(String nome, String endereco, String email, String cpf) {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.email = email;
